@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TTS</title>
+</head>
+<body>
+<label for="textarea">Text a sasir:</label>
+<textarea name="textarea" id="textarea" style="width: 400px; height: 200px" ></textarea>
+<button onclick="tts()" >click</button>
+
+<script>
+
+    // init
+    var synth = window.speechSynthesis;
+    var utterThis = new SpeechSynthesisUtterance();
+    utterThis.pitch = 1;
+    utterThis.rate = 1;
+    utterThis.volume = 1.0;
+    utterThis.lang = "fr-FR";
+
+    function tts(){
+        console.log(document.querySelector("#textarea").value);
+        utterThis.text = document.querySelector("#textarea").value;
+        console.log(utterThis);
+        synth.speak(utterThis);
+    }
+
+
+</script>
+</body>
+
+
+</html>
