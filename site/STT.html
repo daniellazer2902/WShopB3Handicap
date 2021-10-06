@@ -30,33 +30,24 @@
   <title>STT</title>
 </head>
 <body>
-<p><button type="button" onclick="runSpeechRecognition()">Parle bien</button></p>
+<p><button type="button" onclick="run()">Parle bien</button></p>
 <div id="output"></div>
-<script>
-  /* JS comes here */
-  function runSpeechRecognition() {
-    // get output div reference
-    var output = document.getElementById("output");
-    // get action element reference
-    var action = document.getElementById("action");
-    // new speech recognition object
-    var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
-    var recognition = new SpeechRecognition();
 
-    recognition.onspeechend = function() {
-      recognition.stop();
+<script src="scripts/STT.js"></script>
+<script>
+  // get output div reference
+  var output = document.getElementById("output");
+  // get action element reference
+  var action = document.getElementById("action");
+
+    function run() {
+      runSpeech(output);
     }
 
-    // This runs when the speech recognition service returns result
-    recognition.onresult = function(event) {
-      var transcript = event.results[0][0].transcript;
-      output.innerHTML = "<b>Text:</b> " + transcript;
-      output.classList.remove("hide");
-    };
 
-    // start recognition
-    recognition.start();
-  }
+
+  /* JS comes here */
+
 </script>
 </body>
 </html>
