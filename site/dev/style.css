@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: 'Cambria';
+    color: black;
+    box-sizing: border-box; /* le padding respecte les dims de la box */
+}
+
+body {
+    background-color: #DAD0F9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 100vh;
+}
+
+.test {
+    display: flex;
+}
+
+.texttitre {
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 21px;
+}
+
+.textBtn {
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 21px;
+    line-height: 25px;
+}
+
+.champs {
+    background: #FFFFFF;
+    border: 3px solid #40139E;
+    box-sizing: border-box;
+    border-radius: 5px;
+    height: 147px;
+}
+
+.btnAdd {
+    background: #FFFFFF;
+    border-radius: 25px;
+    height: 50px;
+    text-align: center;
+    display: flex;
+    border: none;
+}
+
+.selectBox {
+    height: 48px;
+    background: #FFFFFF;
+    border: 3px solid #40139E;
+    box-sizing: border-box;
+    border-radius: 5px;
+}

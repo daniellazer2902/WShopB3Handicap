@@ -9,7 +9,7 @@ function ttb(text) {
         catch {
         }
     });
-    console.log(braille);
+    //console.log(braille);
     return braille;
 }
 

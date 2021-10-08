@@ -6,13 +6,23 @@
 
 </head>
 <body>
-  <div id="qrcode"></div>
+
   <script type="text/javascript" src="scripts/qrcode.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  
+
+  <textarea name="textarea" id="textarea" style="width: 400px; height: 200px" >http://danielgavriline.social/</textarea>
+  <button onclick="run()" >click</button>
+  <div id="qrcode"></div>
     <script type="text/javascript">
-      new QRCode(document.getElementById("qrcode"), "https://www.apple.com/fr");
+
     </script>
+
+  <script>
+      function run(){
+          var text = document.querySelector("#textarea").value;
+          new QRCode(document.getElementById("qrcode"), text);
+      }
+  </script>
 
 </body>
 </html>

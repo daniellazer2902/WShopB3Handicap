@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SCANVI - Accueil</title>
+    <meta name = "viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <div class="flex-wrap justify-content-center align-items-center test">
+
+        <div class="w-75">
+            <label for="champsNote" class="texttitre">Saisir une note à ajouter</label>
+            <textarea name="champNotes" id="champsNote" class="w-100 champs" ></textarea>
+        </div>
+
+        <button onclick="addNote()" class="btnAdd w-50 align-items-center justify-content-center textBtn" style="letter-spacing: 1px;margin-top: 27px;margin-bottom: 79px">
+            AJOUTER
+        </button>
+
+
+        <div class="w-75">
+            <label class="texttitre">Mes notes rédigées</label>
+            <select class="w-100 selectBox">
+                <option value="1">Histoire Louis XIV - 08/10/21</option>
+                <option value="2">Additions - 08/10/21</option>
+                <option value="3">Poésie - 08/10/21</option>
+            </select>
+        </div>
+
+        <button class="btnAdd w-50 align-items-center justify-content-center textBtn" style="margin-top: 27px;">
+            MODIFIER
+        </button>
+    </div>
+
+
+<script>
+
+    var fs = require('fs');
+
+    function addNote(){
+        //console.log($("#champsNote").val());
+        var text = $("#champsNote").val();
+        var titre = makeid(4);
+        download(text, titre, "html");
+    }
+
+    function makeid(length) {
+        var result           = '';
+        var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        var charactersLength = characters.length;
+        for ( var i = 0; i < length; i++ ) {
+            result += characters.charAt(Math.floor(Math.random() *
+                charactersLength));
+        }
+        return result;
+    }
+
+    function download(data, filename) {
+
+        var dict = {
+            "titre": filename,
+            "text": data
+        };
+        var dictstring = JSON.stringify(dict);
+
+        $.ajax
+        ({
+            type: "GET",
+            dataType : 'json',
+            async: false,
+            url: 'save.php',
+            data: { data: dictstring, titre: filename },
+            success: function () {alert("Thanks!"); },
+        });
+
+    }
+
+</script>
+
+</body>
+</html>
